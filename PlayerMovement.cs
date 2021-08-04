@@ -78,15 +78,10 @@ public class PlayerMovement : MonoBehaviour
             _helicopterMovement.Rotate();
         }
     }
-
     
-    public void MoveShip(float xAxisInput, float yAxisInput, float zAxisInput, bool usePlaneMovement)
+    void MoveShip(float xAxisInput, yAxisInput, zAxisInput)
     {
-        _usingPlaneMovement = usePlaneMovement;
-        
-        RotateShip(xAxisInput);
-        
-        if (usePlaneMovement)
+        if (_usingPlaneMovement)
         {
             _planeMovement.MoveShip(xAxisInput, yAxisInput, zAxisInput);
         }
@@ -94,5 +89,15 @@ public class PlayerMovement : MonoBehaviour
         {
             _helicopterMovement.MoveShip(xAxisInput, yAxisInput, zAxisInput);
         }
+    }
+
+    // called on FixedUpdated in Player.cs
+    public void MoveShip(float xAxisInput, float yAxisInput, float zAxisInput, bool usePlaneMovement)
+    {
+        _usingPlaneMovement = usePlaneMovement;
+        
+        RotateShip(xAxisInput);
+        
+        MoveShip(xAxisInput, yAxisInput, zAxisInput);
     }
 }
