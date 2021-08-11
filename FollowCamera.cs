@@ -41,6 +41,7 @@ public class FollowCamera : MonoBehaviour
 
 	void FixedUpdate()
 	{
+		// keep camera arm on the player
 		transform.position = playerPitchTransform.position;
 		
 		if (playerRef.usePlaneMovement)
