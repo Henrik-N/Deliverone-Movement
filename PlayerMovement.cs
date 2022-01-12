@@ -79,7 +79,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
     
-    void MoveShip(float xAxisInput, yAxisInput, zAxisInput)
+    void MoveShip(float xAxisInput, float yAxisInput, float zAxisInput)
     {
         if (_usingPlaneMovement)
         {
